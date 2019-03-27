@@ -12,6 +12,7 @@ public class TelephoneModel {
 		this.telephone = telephone;
 		this.status = status;
 	}
+	
 
 	/**
 	 * @return the telephone

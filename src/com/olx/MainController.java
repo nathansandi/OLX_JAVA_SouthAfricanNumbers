@@ -4,6 +4,7 @@ import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +30,7 @@ import com.olx.validation.CustomFileValidator;
 import com.olx.entity.CorrectTelephones;
 import com.olx.entity.IncorrectTelephones;
 import com.olx.models.FileUploadModel;
+import com.olx.models.TelephoneModel;
 
 
 
@@ -43,7 +45,7 @@ public class MainController {
 		return "main";
 
 	}
-	@RequestMapping(value = "/dbanalysis", method = RequestMethod.POST)
+	@RequestMapping(value = "/dbanalysis")
 	public ModelAndView  dbAnalysis(ModelAndView model) {
 		SessionFactory factory = new Configuration().
     			configure("hibernate.cfg.xml").
@@ -66,12 +68,15 @@ public class MainController {
 		List<?> listIncorrect = session.createQuery(hql).list();
 
 		session.close();
-	    
 		model = new ModelAndView("dbanalysis");
 	    
+
+	    	model.addObject("dbanalysis", listCorrect);
+
+	    	model.addObject("dbanalysisIn", listIncorrect);
+
 	    
-	    model.addObject("dbanalysis", listCorrect);
-		model.addObject("dbanalysisIn", listIncorrect);
+	
 
 		
 		return model;

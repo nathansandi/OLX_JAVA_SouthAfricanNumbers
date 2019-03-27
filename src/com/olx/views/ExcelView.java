@@ -38,18 +38,18 @@ public class ExcelView extends AbstractXlsView{
 		    @SuppressWarnings("unchecked")
 		    List<IncorrectTelephones> IncTeleph = (List<IncorrectTelephones>) model.get("incorrecttelephones");
 		    System.out.println("Object Created...");
-		    System.out.println("INC TEST - "+IncTeleph.get(0));
-		    
+		
 		    // create excel xls sheet
 		    Sheet sheet = workbook.createSheet("Telephones Details");
 		    sheet.setDefaultColumnWidth(30);
+	
 		    
 		    Sheet sheetInc = workbook.createSheet("Rejected Telephones Details");
 		    sheetInc.setDefaultColumnWidth(30);
 
 		    // create style for header cells
 		    CellStyle style = workbook.createCellStyle();
-
+		   
 
 		    // create header row
 		    Row header = sheet.createRow(0);
@@ -67,7 +67,7 @@ public class ExcelView extends AbstractXlsView{
 		    headerInc.getCell(1).setCellStyle(style);
 		   
 
-
+		 
 
 		    int rowCount = 1;
 
@@ -86,7 +86,8 @@ public class ExcelView extends AbstractXlsView{
 		        userRow.createCell(0).setCellValue(tempTelIn.getId());
 		        userRow.createCell(1).setCellValue(tempTelIn.getTelephone());
 		     }
-
+		   
+		    System.out.println("INC TEST - "+IncTeleph.get(0));
 		}
 
 		
