@@ -8,10 +8,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+
 import org.springframework.web.servlet.view.document.AbstractXlsView;
 
 import com.olx.entity.CorrectTelephones;
@@ -29,7 +31,7 @@ public class ExcelView extends AbstractXlsView{
 
 			System.out.println("View Started...");
 		    // change the file name
-		    response.setHeader("Content-Disposition", "attachment; filename=\"my-xls-file.xls\"");
+		    response.setHeader("Content-Disposition", "attachment; filename=\"sa_telephones.xls\"");
 
 		    System.out.println("Going Create the object...");
 		    @SuppressWarnings("unchecked")
