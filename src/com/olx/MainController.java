@@ -39,7 +39,7 @@ public class MainController {
 
 	@Autowired
 	CustomFileValidator customFileValidator;
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/")
 	public String uploadFileFormDisplay(Model model) {
 		model.addAttribute("fileUploadModel", new FileUploadModel());
 		return "main";
@@ -84,7 +84,7 @@ public class MainController {
 	}
 
 	
-    @RequestMapping(value="/savefile",method=RequestMethod.POST)  
+    @RequestMapping(value="/savefile")  
     public ModelAndView upload(@RequestParam CommonsMultipartFile file,HttpSession session, Model model,@ModelAttribute FileUploadModel fileUploadModel, BindingResult bindingResult){  
             String path=session.getServletContext().getRealPath("/");  
             String filename=file.getOriginalFilename();  
@@ -159,7 +159,7 @@ public class MainController {
     		modelDB.addObject("dbanalysisIn", listIncorrect); 
     		return modelDB;
         } 
-		@RequestMapping(value = "/downloadfile", method = RequestMethod.GET)
+		@RequestMapping(value = "/downloadfile")
 		public ModelAndView generateExcel(HttpServletRequest request,HttpServletResponse response) throws Exception {
 		  
 		  SessionFactory factory = new Configuration().
