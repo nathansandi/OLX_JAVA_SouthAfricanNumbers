@@ -89,7 +89,6 @@ public class ExcelView extends AbstractXlsView{
 		        userRow.createCell(1).setCellValue(tempTelIn.getTelephone());
 		     }
 		   
-		    System.out.println("INC TEST - "+IncTeleph.get(0));
 		}
 
 		
